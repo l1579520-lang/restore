@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小遊戲</title>
+  <link rel="icon" href="https://png.pngtree.com/png-clipart/20230418/original/pngtree-games-line-icon-png-image_9064904.png">
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      height: 70px;
+      background: linear-gradient(180deg, #fff, #FF4500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav {
+      background: #FFA500;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #333; }
+    h1 { font-size: 22px; margin-bottom: 15px; color: #444; }
+    section {
+      width: 90%;
+      margin: 20px auto;
+      background: rgb(224,17,17);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .grid-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 10px;
+    }
+    .grid-list li { text-align: center; }
+    .grid-list img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <header>小小遊戲屋</header>
+  <nav>
+    <a href="#section1">飼養兔子</a>
+    <a href="#section2">我不是機器人</a>
+    <a href="#section3">類別3</a>
+    <a href="#section4">類別4</a>
+    <a href="#section5">類別5</a>
+  </nav>
+  <section>
+    <h1 id="section1">飼養兔子</h1>
+    <h1 style="font-size:15px;color:white">
+      兔子的主食是牧草（約佔飲食 75–80%），其次是少量新鮮蔬菜（10–15%）、專用飼料（約 5%），水果只能偶爾當零食（<5%）。紅蘿蔔並不是主食，只能當點心，兔子也需要乾淨的飲用水。
+    </h1>
+    <iframe width="400" height="250" src="https://www.youtube.com/embed/zHLju_nwPJc?si=QutLS9P5amzCOLlu"
+      title="YouTube video player" frameborder="0" allowfullscreen style="float:right"></iframe>
+
+    <h1>小測驗</h1>
+    <h1>小明養的兔子餓了,請問應該餵牠吃什麼呢?</h1>
+    <select id="mySelect" style="font-size:20px;">
+      <option value="">--請選擇--</option>
+      <option value="A">紅蘿蔔</option>
+      <option value="B">遊戲機</option>
+      <option value="C">tesla model Y</option>
+    </select>
+    <p id="messageA" style="display:none;">太棒了!你是第一名!</p>
+    <p id="messageB" style="display:none;">都怪你!兔子死了</p>
+    <p id="messageC" style="display:none;">都怪你!兔子死了</p>
+
+    <script>
+      document.getElementById("mySelect").addEventListener("change", function () {
+        ["messageA","messageB","messageC"].forEach(id => document.getElementById(id).style.display="none");
+        if (this.value === "A") document.getElementById("messageA").style.display="block";
+        else if (this.value === "B") document.getElementById("messageB").style.display="block";
+        else if (this.value === "C") document.getElementById("messageC").style.display="block";
+      });
+    </script>
+
+    <h1 id="section2">我不是機器人</h1>
+    <h1>內容</h1>
+    <h1>請選出包含宋芸樺的圖片</h1>
+    <ul class="grid-list">
+      <li><input type="checkbox" value="A"> A<img src="https://www.iqilin.com/wp-content/uploads/2024/02/%E5%AE%8B%E8%8A%B8%E6%A8%BA-Vivian-Sung-390x520.webp"></li>
+      <li><input type="checkbox" value="B"> B<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWcR-yL9EbfdpkCG5fthlEsYz5d3IihaKTg&s"></li>
+      <li><input type="checkbox" value="C"> C<img src="https://img.myvideo.net.tw/images/directorActor/79/S0001679.png"></li>
+      <li><input type="checkbox" value="D"> D<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-x3lOOmpP9iZgFUZe9uqdtizCzpJ50rFVsg&s"></li>
+      <li><input type="checkbox" value="E"> E<img src="https://img.ltn.com.tw/Upload/ent/page/800/2024/05/27/phpGHTAfP.jpg"></li>
+      <li><input type="checkbox" value="F"> F<img src="https://asagency.cc/wp-content/uploads/2021/07/%E5%A4%8F%E4%BA%8E%E5%96%AC.jpg"></li>
+      <li><input type="checkbox" value="G"> G<img src="https://www.niusnews.com/upload/imgs/default/202311_Jessie/1114/2/1.jpg"></li>
+      <li><input type="checkbox" value="H"> H<img src="https://s.yimg.com/ny/api/res/1.2/6IHrZjlUGy1xWmvqTsQ0.A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://media.zenfs.com/en/ebc.net.tw/6005423288336f7d9b68216afe28c40a"></li>
+      <li><input type="checkbox" value="I"> I<img src="https://cdn.hk01.com/di/media/images/dw/20230320/714546087750275072170396.jpeg/S7DJ8K_G5AYbxlmsETpCSSkROja5Po5BSva1R0r2tUc?v=w1920r16_9"></li>
+    </ul>
+    <button id="submitBtn">提交</button>
+    <p id="result"></p>
+
+    <script>
+      document.getElementById("submitBtn").addEventListener("click", function () {
+        const checked = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+        const result = document.getElementById("result");
+        if (["B","C","D","F","G","H"].some(v => checked.includes(v))) {
+          result.textContent = "答錯 ❌"; result.style.color = "red";
+        } else if (checked.includes("A") && checked.includes("I") && checked.includes("E")) {
+          result.textContent = "答對 ✅"; result.style.color = "green";
+        } else {
+          result.textContent = "答錯 ❌"; result.style.color = "red";
+        }
+      });
+    </script>
+  </section>
+</body>
+</html>
