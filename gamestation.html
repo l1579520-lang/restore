@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>小小遊戲屋</title>
+    <link rel="icon"
+        href="gameicon.png">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            background: #f4f6f8;
+        }
+
+        header {
+            background: linear-gradient(135deg, #9be15d, #00c9a7);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav a {
+            font-weight: bold;
+        }
+
+        section {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #198754;
+        }
+
+        .grid-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .grid-list li {
+            position: relative;
+        }
+
+        .grid-list img {
+            width: 40%;
+            border-radius: 12px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            cursor: pointer;
+            /* display: block; */
+        }
+
+        .grid-list input:checked+img {
+            outline: 4px solid #198754;
+        }
+
+        .btn-wrap {
+            height: 80px;
+            /* 固定高度 */
+            margin-top: 20px;
+            /* 與上方圖片網格拉開距離 */
+        }
+
+        .spot-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>小小遊戲屋</header>
+
+    <nav class="navbar navbar-expand bg-success">
+        <div class="container justify-content-center">
+            <a class="nav-link text-white" href="#rabbit">🐰 飼養兔子</a>
+            <a class="nav-link text-white" href="#captcha">🤖 我不是機器人</a>
+            <a class="nav-link text-white" href="#spot">🔍 大家來找碴</a>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+
+        <section id="rabbit">
+            <h1>🐰 飼養兔子</h1>
+
+            <div class="row g-4 ">
+                <div class="col-md-6">
+                    <iframe class="w-100 rounded" height="260" src="https://www.youtube.com/embed/zHLju_nwPJc"></iframe>
+                </div>
+
+                <div class="col-md-6">
+                    <p class="fs-5">小明養的兔子餓了，請問應該餵牠吃什麼呢？</p>
+
+                    <select id="mySelect" class="form-select form-select-lg">
+                        <option value="">--請選擇--</option>
+                        <option value="A">紅蘿蔔</option>
+                        <option value="B">遊戲機</option>
+                        <option value="C">Tesla Model Y</option>
+                    </select>
+
+                    <div class="mt-3">
+                        <p id="messageA" style="display:none;"  class="text-success fs-4 ">太棒了！答對了 🎉</p>
+                        <p id="messageB" style="display:none;" class="text-danger fs-4 ">兔子死了 💀</p>
+                        <p id="messageC" style="display:none;"  class="text-danger fs-4 ">兔子死了 💀</p>
+                    </div>
+                    <script>
+                        document.getElementById("mySelect").addEventListener("change", function () {
+                            // 先把所有訊息隱藏
+                            document.getElementById("messageA").style.display = "none";
+                            document.getElementById("messageB").style.display = "none";
+                            document.getElementById("messageC").style.display = "none";
+
+                            // 根據選項顯示對應訊息
+                            if (this.value === "A") {
+                                document.getElementById("messageA").style.display = "block";
+                            } else if (this.value === "B") {
+                                document.getElementById("messageB").style.display = "block";
+                            } else if (this.value === "C") {
+                                document.getElementById("messageC").style.display = "block";
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </section>
+
+        <section id="captcha">
+            <h1>🤖 我不是機器人</h1>
+            <p class="fs-5 mb-4">請選出包含 <strong>宋芸樺</strong> 的圖片</p>
+
+            <ul class="grid-list">
+                <li><label style="cursor: pointer;"><input type="checkbox" value="A"> A<img
+                        src="A.jpg">
+                        </label>
+                </li>
+                <li><label style="cursor: pointer;"><input type="checkbox" value="B">B <img
+                        src="B.jpg">
+                        </label>
+                </li>
+                <li><label style="cursor: pointer;"><input type="checkbox" value="C">C <img
+                        src="C.jpg">
+                    </label>
+                </li>
+                <li><label style="cursor: pointer;"><input type="checkbox" value="D">D <img
+                        src="D.jpg">
+                        </label>
+                </li>
+                <li><label style="cursor: pointer;"><input type="checkbox" value="E">E <img
+                        src="E.jpg">
+                    </label>
+                </li>
+                <li><label style="cursor: pointer;"><input type="checkbox" value="F">F <img
+                        src="F.jpg">
+                        </label>
+                </li>
+                <li>
+                    <label style="cursor: pointer;">
+                    <input type="checkbox" value="G">G <img
+                        src="G.jpg">
+                        </label>
+                </li>
+                <li>
+                    <label style="cursor: pointer;">
+                    <input type="checkbox" value="H">H <img
+                        src="H.jpg">
+                        </label>
+
+                </li>
+                <li>
+                    <label style="cursor: pointer;">
+                    <input type="checkbox" value="I"> I<img
+                        src="I.jpg">
+                        </label>
+                </li>
+            </ul>
+            <div class="btn-wrap">
+                <button id="submitBtn" class="btn btn-success btn-lg " style="justify-content: left;">確認</button>
+                <p id="result" class="fs-4 "></p>
+            </div>
+            <script>
+                document.getElementById("submitBtn").addEventListener("click", function () {
+                    // 取得所有勾選的 checkbox
+                    const checked = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                        .map(cb => cb.value);
+
+                    const result = document.getElementById("result");
+
+                    // 判斷選項
+                    if (checked.includes("B") || checked.includes("C") || checked.includes("D") || checked.includes("F") || checked.includes("G") || checked.includes("H")) {
+                        result.textContent = "答錯 ❌";
+                        result.style.color = "red";
+                        result.style.fontSize = "24px";
+                    } else if (checked.includes("A") && checked.includes("I") && checked.includes("E")) {
+                        result.textContent = "答對 ✅";
+                        result.style.color = "green";
+                        result.style.fontSize = "24px";
+                    } else {
+                        result.textContent = "答錯 ❌";
+                        result.style.color = "red";
+                        result.style.fontSize = "24px";
+                    }
+                });
+            </script>
+        </section>
+
+        <!-- 找碴 -->
+        <section id="spot">
+            <h1>🔍 大家來找碴</h1>
+            <p class="fs-5 mb-4">請點擊右圖中三個與左圖不同之處</p>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <img src="fd1.jpg" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6 spot-wrapper">
+                    <img src="fd2.jpg" class="img-fluid rounded">
+
+                
+                <div onclick="showText1()" style="
+        position: absolute;
+        top: 20%;    
+        left: 78%;   
+        width: 25px; 
+        height: 25px;
+        cursor: pointer;
+        background: rgba(183, 230, 15, 0); 
+    "></div>
+                <div onclick="showText2()" style="
+        position: absolute;
+        top: 80%;   
+        left: 12%;  
+        width: 25px; 
+        height: 50px;
+        cursor: pointer;
+        background: rgba(59, 37, 95, 0); 
+    "></div>
+                <div onclick="showText3()" style="
+        position: absolute;
+        top: 64%;    
+        left: 79%;   
+        width: 25px; 
+        height: 25px;
+        cursor: pointer;
+        background: rgba(117, 184, 10, 0); 
+    "></div></div>
+
+                <h2 id="info-text1" style="display: none;">
+                    樹上多了一隻鳥
+                    </2>
+                    <h2 id="info-text2" style="display: none;">
+                        涼亭的人不見了
+                    </h2>
+                    <h2 id="info-text3" style="display: none;">
+                        風箏的顏色改變了
+                    </h2>
+
+                    <script>
+                        function showText1() {
+                            document.getElementById('info-text1').style.display = 'block';
+                        }
+                        function showText2() {
+                            document.getElementById('info-text2').style.display = 'block';
+                        }
+                        function showText3() {
+                            document.getElementById('info-text3').style.display = 'block';
+                        }
+                    </script>
+            </div>
+        </section>
+
+    </main>
+
+
+
+</body>
+
+</html>
